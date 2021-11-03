@@ -9,9 +9,12 @@
  */
   *{
     /* border: 1px solid red; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
- html {
+  html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
   }
@@ -25,24 +28,40 @@
   
   body {
     margin: 0;
+    max-width: 992px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 20px;
+    background: rgb(20, 19, 19);
+    background: linear-gradient(90deg, rgb(27, 26, 26) 0%, rgba(23,27,31,1) 36%, rgba(42,48,54,1) 56%, rgba(51,58,65,1) 81%, rgba(61,61,61,1) 100%);
   }
-  
+    
   /**
    * Render the `main` element consistently in IE.
    */
-    header{
-      background-color: #74EBD5;
-      background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-      font-family: 'Carter One', cursive, Helvetica;
-      /* color: #FF5154; */
-      color: #1C5D99;
-      border-radius: 10px;
-      position: relative;
-    }
+  header{
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    background-image: linear-gradient( 65.9deg, rgba(85,228,224,1) 5.5%, rgba(75,68,224,0.74) 54.2%, rgba(64,198,238,1) 55.2%, rgb(70, 36, 224) 98.4% );
+    font-family: 'Carter One', cursive, Helvetica;
+    color: whitesmoke;
+    text-shadow:1px 1px 4px rgb(27, 26, 26);
+    border-radius: 10px;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    margin-top: 1rem;
+  }
 
-  main {
-    display: block;
+  header h1{
+    margin-left: 2rem;
+  }
+
+  .text {
     font-family: 'Philosopher', sans-serif;
+    grid-column: 1/4;
+    grid-row: 2/3;
+    margin: 0 1rem;
+    color: wheat;
+    padding-top: 1rem;
   }
   
   /**
@@ -51,18 +70,60 @@
    */
   
   h1 {
-    font-size: 2em;
+    font-size: 2.6em;
     margin: 0.67em 0;
     padding: 0.8em;
-    margin: 0 auto;  
+    margin: 0 auto;
 
   }
   
   footer{
     background-color: #74EBD5;
     background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     border-radius: 5px;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+
+  footer a{
+    color: #FF3E55;
+  }
+  footer p{
+    margin-left: 2rem;
+    margin-bottom: 0;
+  }
+
+  #info, #update{
+    grid-column: 1/2;
+    margin: 0 auto;
+  }
+
+  #update{
+    color: #dd243a;
+  }
+
+  .profile-img{
+    grid-column: 2/3;
+    grid-row: 1/4;
+    z-index: 1;
+    justify-self: end;
+    align-self: center;
+  }
+
+  p{
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  a{
+    color: aquamarine;
+  }
+
+  a:hover{
+    cursor: pointer;
   }
   /* Grouping content
      ========================================================================== */
@@ -170,10 +231,8 @@
   img {
     border-style: none;
     max-width: 100%;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-
+    height: auto;
+    filter: drop-shadow(4px 4px 5px rgb(27, 26, 26))
   }
   
   /* Forms
@@ -374,3 +433,42 @@
   [hidden] {
     display: none;
   }
+
+
+
+  @media screen and (max-width: 600px) { 
+    /* beginning of media query */
+        .container-lg{
+        display: block;
+        }
+
+        .profile-img{
+          /* size: 100vw; */
+          max-width: 100%;
+          display: block;
+          margin: 0 auto;
+          padding: 1rem;
+        }
+        
+    /* end of media query */ 
+    } 
+
+    @media screen and (max-width: 800px) { 
+      /* beginning of media query */
+          .container-lg, footer{
+          display: block;
+          }
+  
+          .profile-img{
+            /* size: 100vw; */
+            max-width: 100%;
+            /* display: block; */
+            /* margin: 0 auto; */
+            padding: 1rem;
+          }
+
+          footer p{
+            text-align: center;
+          }
+      /* end of media query */ 
+      } 
